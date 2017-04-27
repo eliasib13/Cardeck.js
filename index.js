@@ -141,7 +141,7 @@ Deck.prototype.addCardToTop = function (c) {
  * @this {Deck}
  * @return {Card} The card at the top of the deck.
  */
-Deck.prototype.drawCardFromTop() {
+Deck.prototype.drawCardFromTop = function () {
     if (this.size > 0) {
         var pickedCard = this.cards.shift();
         this.size--;
