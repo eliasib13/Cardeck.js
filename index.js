@@ -109,7 +109,7 @@ Deck.prototype.setName = function (n) {
 }
 
 /**
- * Adds a new card to the deck.
+ * Adds a new card at the top of the deck.
  *
  * @this {Deck}
  * @param {number} numVal Numeric value of the card.
@@ -122,7 +122,7 @@ Deck.prototype.addCardToTop = function (numVal, type, imgPath) {
 }
 
 /**
- * Adds a new card to the deck.
+ * Adds a new card at the top of the deck.
  *
  * @this {Deck}
  * @param {Object} c The object or card to insert on the deck.
@@ -132,6 +132,33 @@ Deck.prototype.addCardToTop = function (c) {
         this.cards.unshift(c);
     else
         this.cards.unshift(new Card(c.value,c.type,c.imgPath));
+    this.size++;
+}
+
+/**
+ * Adds a new card at the end of the deck.
+ *
+ * @this {Deck}
+ * @param {number} numVal Numeric value of the card.
+ * @param {string} type Type of the card.
+ * @param {string} imgPath Path to the image which represents the card.
+ */
+Deck.prototype.addCardToBottom = function (numVal, type, imgPath) {
+    this.cards.push(new Card(numVal,type,imgPath));
+    this.size++;
+}
+
+/**
+ * Adds a new card at the end of the deck.
+ *
+ * @this {Deck}
+ * @param {Object} c The object or card to insert on the deck.
+ */
+Deck.prototype.addCardToBottom = function (c) {
+    if (c instanceof Card)
+        this.cards.push(c);
+    else
+        this.cards.push(new Card(c.value,c.type,c.imgPath));
     this.size++;
 }
 
