@@ -176,6 +176,20 @@ Deck.prototype.drawCardFromTop = function () {
     }
 }
 
+/**
+ * Draws a card from the bottom of the deck.
+ * 
+ * @this {Deck}
+ * @return {Card} The card at the bottom of the deck.
+ */
+Deck.prototype.drawCardFromBottom = function () {
+    if (this.size > 0) {
+        var pickedCard = this.cards.pop();
+        this.size--;
+        return pickedCard;
+    }
+}
+
 module.exports = {
     Deck: Deck,
     Card: Card
