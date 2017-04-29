@@ -63,3 +63,53 @@ describe('Testing Card constructor', function() {
         expect(testCard.imgPath).toBe(imgPath);
     });
 });
+
+describe('Testing Card methods', function() {
+    it('Method setValue', function() {
+        var testCard = new Card();
+        var value = 8;
+
+        testCard.setValue(value);
+
+        expect(testCard.value).toBe(value);
+    });
+
+    it('Method getValue', function() {
+        var value = 10;
+        var testCard = new Card(value);
+
+        expect(testCard.getValue()).toBe(value);
+    });
+
+    it('Method setType', function() {
+        var testCard = new Card();
+        var type = 'Aces';
+
+        testCard.setType(type);
+
+        expect(testCard.type).toBe(type);
+    });
+
+    it('Method getType', function() {
+        var type = 'Diamonds';
+        var testCard = new Card(null, type);
+
+        expect(testCard.getType()).toBe(type);
+    });
+
+    it('Method setImgPath', function() {
+        var testCard = new Card();
+        var imgPath = './img/card-img.png';
+
+        testCard.setImgPath(imgPath);
+
+        expect(testCard.imgPath).toBe(imgPath);
+    });
+
+    it('Method getImgPath', function() {
+        var imgPath = './assets/3-hearts.png';
+        var testCard = new Card(null, null, imgPath);
+
+        expect(testCard.getImgPath()).toBe(imgPath);
+    });
+});
