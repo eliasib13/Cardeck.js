@@ -113,3 +113,72 @@ describe('Testing Card methods', function() {
         expect(testCard.getImgPath()).toBe(imgPath);
     });
 });
+
+describe('Testing Deck methods', function () {
+    it('Deck default constructor', function () {
+        var testDeck = new Deck();
+
+        expect(testDeck).toHaveString('name');
+        expect(testDeck).toHaveArray('cards');
+        expect(testDeck).toHaveNumber('size');
+
+        expect(testDeck.name).toBe('default');
+        expect(testDeck.cards).toBeEmptyArray();
+        expect(testDeck.size).toBe(0);
+    });
+
+    it('Deck constructor with parameter', function () {
+        var name = 'My First Deck';
+        var testDeck = new Deck(name);
+
+        expect(testDeck).toHaveString('name');
+        expect(testDeck).toHaveArray('cards');
+        expect(testDeck).toHaveNumber('size');
+
+        expect(testDeck.name).toBe(name);
+        expect(testDeck.cards).toBeEmptyArray();
+        expect(testDeck.size).toBe(0);
+    });
+
+    it('Method getName', function() {
+        var name = 'This is my deck';
+        var testDeck = new Deck(name);
+
+        expect(testDeck.getName()).toBe(name);
+    });
+
+    it('Method setName', function() {
+        var name = 'The deck';
+        var testDeck = new Deck();
+
+        testDeck.setName(name);
+
+        expect(testDeck.name).toBe(name);
+    });
+
+    // TODO: Add more than one card to decks on following test cases. 
+
+    // it('Method addCardToTop with a generic object parameter', function() {
+    //     var testDeck = new Deck();
+    //     var obj = {
+    //         value: 3,
+    //         type: 'Hearts',
+    //         imgPath: 'img/card.jpg'
+    //     };
+
+    //     testDeck.addCardToTop(obj);
+
+    //     var objAsCard = new Card(obj.value, obj.type, obj.imgPath);
+
+    //     expect(testDeck.cards[0]).toEqual(objAsCard);
+    // });
+
+    // it('Method addCardToTop with a card parameter', function () {
+    //     var testDeck = new Deck();
+    //     var card = new Card(2, 'Clubs', 'my-card.jpg');
+
+    //     testDeck.addCardToTop(card);
+
+    //     expect(testDeck.cards[0]).toBe(card);
+    // });
+});
