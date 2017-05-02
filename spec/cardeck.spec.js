@@ -156,29 +156,150 @@ describe('Testing Deck methods', function () {
         expect(testDeck.name).toBe(name);
     });
 
-    // TODO: Add more than one card to decks on following test cases. 
+    it('Method addCardToTop', function() {
+        var testDeck = new Deck();
+        var cardsObjs = [
+            {
+                value: 3,
+                type: 'Hearts',
+                imgPath: 'img/card1.jpg'
+            },
+            {
+                value: 2,
+                type: 'Aces',
+                imgPath: 'img/card2.jpg'
+            },
+            {
+                value: 7,
+                type: 'Diamonds',
+                imgPath: 'img/card3.jpg'
+            }
+        ];
 
-    // it('Method addCardToTop with a generic object parameter', function() {
-    //     var testDeck = new Deck();
-    //     var obj = {
-    //         value: 3,
-    //         type: 'Hearts',
-    //         imgPath: 'img/card.jpg'
-    //     };
+        cardsObjs.forEach(function(card) {
+            testDeck.addCardToTop(card);
+        }, this);
 
-    //     testDeck.addCardToTop(obj);
+        var objsAsCard = [
+            new Card(cardsObjs[0].value, cardsObjs[0].type, cardsObjs[0].imgPath),
+            new Card(cardsObjs[1].value, cardsObjs[1].type, cardsObjs[1].imgPath),
+            new Card(cardsObjs[2].value, cardsObjs[2].type, cardsObjs[2].imgPath)            
+        ];
 
-    //     var objAsCard = new Card(obj.value, obj.type, obj.imgPath);
+        expect(testDeck.size).toEqual(objsAsCard.length);
+        expect(testDeck.cards[0]).toEqual(objsAsCard[2]);
+        expect(testDeck.cards[1]).toEqual(objsAsCard[1]);
+        expect(testDeck.cards[2]).toEqual(objsAsCard[0]);
+    });
 
-    //     expect(testDeck.cards[0]).toEqual(objAsCard);
-    // });
+    it('Method addCardToBottom', function() {
+        var testDeck = new Deck();
+        var cardsObjs = [
+            {
+                value: 'A',
+                type: 'Clubs',
+                imgPath: 'img/card1.jpg'
+            },
+            {
+                value: 'J',
+                type: 'Hearts',
+                imgPath: 'img/card2.jpg'
+            },
+            {
+                value: 4,
+                type: 'Clubs',
+                imgPath: 'img/card3.jpg'
+            }
+        ];
 
-    // it('Method addCardToTop with a card parameter', function () {
-    //     var testDeck = new Deck();
-    //     var card = new Card(2, 'Clubs', 'my-card.jpg');
+        cardsObjs.forEach(function(card) {
+            testDeck.addCardToBottom(card);
+        }, this);
 
-    //     testDeck.addCardToTop(card);
+        var objsAsCard = [
+            new Card(cardsObjs[0].value, cardsObjs[0].type, cardsObjs[0].imgPath),
+            new Card(cardsObjs[1].value, cardsObjs[1].type, cardsObjs[1].imgPath),
+            new Card(cardsObjs[2].value, cardsObjs[2].type, cardsObjs[2].imgPath)            
+        ];
 
-    //     expect(testDeck.cards[0]).toBe(card);
-    // });
+        expect(testDeck.size).toEqual(objsAsCard.length);        
+        expect(testDeck.cards[0]).toEqual(objsAsCard[0]);
+        expect(testDeck.cards[1]).toEqual(objsAsCard[1]);
+        expect(testDeck.cards[2]).toEqual(objsAsCard[2]);
+    });
+
+    it('Method drawCardFromTop', function() {
+        var testDeck = new Deck();
+        var cardsObjs = [
+            {
+                value: 6,
+                type: 'Hearts',
+                imgPath: 'img/card1.jpg'
+            },
+            {
+                value: 9,
+                type: 'Clubs',
+                imgPath: 'img/card2.jpg'
+            },
+            {
+                value: 10,
+                type: 'Aces',
+                imgPath: 'img/card3.jpg'
+            }
+        ];
+
+        cardsObjs.forEach(function(card) {
+            testDeck.addCardToBottom(card);
+        }, this);
+
+        var objsAsCard = [
+            new Card(cardsObjs[0].value, cardsObjs[0].type, cardsObjs[0].imgPath),
+            new Card(cardsObjs[1].value, cardsObjs[1].type, cardsObjs[1].imgPath),
+            new Card(cardsObjs[2].value, cardsObjs[2].type, cardsObjs[2].imgPath)            
+        ];
+
+        expect(testDeck.size).toEqual(objsAsCard.length);        
+        expect(testDeck.drawCardFromTop()).toEqual(objsAsCard[0]);
+        expect(testDeck.drawCardFromTop()).toEqual(objsAsCard[1]);
+        expect(testDeck.drawCardFromTop()).toEqual(objsAsCard[2]);
+        expect(testDeck.size).toEqual(0);
+    });
+
+    it('Method drawCardFromBottom', function() {
+        var testDeck = new Deck();
+        var cardsObjs = [
+            {
+                value: 6,
+                type: 'Hearts',
+                imgPath: 'img/card1.jpg'
+            },
+            {
+                value: 9,
+                type: 'Clubs',
+                imgPath: 'img/card2.jpg'
+            },
+            {
+                value: 10,
+                type: 'Aces',
+                imgPath: 'img/card3.jpg'
+            }
+        ];
+
+        cardsObjs.forEach(function(card) {
+            testDeck.addCardToBottom(card);
+        }, this);
+
+        var objsAsCard = [
+            new Card(cardsObjs[0].value, cardsObjs[0].type, cardsObjs[0].imgPath),
+            new Card(cardsObjs[1].value, cardsObjs[1].type, cardsObjs[1].imgPath),
+            new Card(cardsObjs[2].value, cardsObjs[2].type, cardsObjs[2].imgPath)            
+        ];
+
+        expect(testDeck.size).toEqual(objsAsCard.length);        
+        expect(testDeck.drawCardFromBottom()).toEqual(objsAsCard[2]);
+        expect(testDeck.drawCardFromBottom()).toEqual(objsAsCard[1]);
+        expect(testDeck.drawCardFromBottom()).toEqual(objsAsCard[0]);
+        expect(testDeck.size).toEqual(0);
+    });
+
 });
