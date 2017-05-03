@@ -164,6 +164,37 @@ Deck.prototype.drawCardFromBottom = function () {
     }
 }
 
+/**
+ * Adds a new card at a random position of the deck.
+ * 
+ * @this {Deck}
+ * @return {Card} The card to add to the deck.
+ */
+Deck.prototype.addCardToRandom = function (c) {
+    var position = Math.floor(Math.random() * this.size);
+    
+    if (c instanceof Card)
+        this.cards.splice(position, 0, c);
+    else
+        this.cards.splice(position, 0, new Card(c.value,c.type,c.imgPath));
+    this.size++;
+}
+
+/**
+ * Draws a card from a random position of the deck.
+ * 
+ * @this {Deck}
+ * @return {Card} The card at a random position of the deck.
+ */
+Deck.prototype.drawCardFromRandom = function () {
+    if (this.size > 0) {
+        var position = Math.floor(Math.random() * this.size);
+        var pickedCard = this.cards.splice(position, 1);
+        this.size--;
+        return pickedCard[0];
+    }
+}
+
 module.exports = {
     Deck: Deck,
     Card: Card
