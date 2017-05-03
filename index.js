@@ -12,7 +12,7 @@ function Card(numVal, type, imgPath) {
     /** @private */ this.value = numVal || 0;
     /** @private */ this.type = type || 'default';
     /** @private */ this.imgPath = imgPath || './card.png';
-};
+}
 
 /**
  * Sets the value of a card.
@@ -86,7 +86,7 @@ function Deck(name) {
     /** @private */ this.name = name || 'default';
     /** @private */ this.cards = [];
     /** @private */ this.size = 0;
-};
+}
 
 /**
  * Gets the name of the deck.
