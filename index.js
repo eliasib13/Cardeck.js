@@ -109,6 +109,16 @@ Deck.prototype.setName = function (n) {
 }
 
 /**
+ * Gets the size of the deck.
+ *
+ * @this {Deck}
+ * @return {number} The size of the deck.
+ */
+Deck.prototype.getSize = function () {
+    return this.size;
+};
+
+/**
  * Adds a new card at the top of the deck.
  *
  * @this {Deck}

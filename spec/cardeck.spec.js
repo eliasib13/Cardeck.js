@@ -228,6 +228,21 @@ describe('Testing Deck methods', function () {
         expect(testDeck.cards[2]).toEqual(objsAsCard[2]);
     });
 
+    it('Method getSize', function() {
+        var name = 'This is the one deck';
+        var testDeck = new Deck(name);
+
+        expect(testDeck.getSize()).toBe(0);
+
+        testDeck.addCardToBottom(new Card(4, 'Clubs', 'my-img.png'));
+
+        expect(testDeck.getSize()).toBe(1);
+
+        testDeck.drawCardFromTop();
+
+        expect(testDeck.getSize()).toBe(0);          
+    });
+
     it('Method drawCardFromTop', function() {
         var testDeck = new Deck();
         var cardsObjs = [
