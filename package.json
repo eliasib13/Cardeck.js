@@ -2,7 +2,7 @@
   "name": "cardeck",
   "version": "0.0.2",
   "description": "A simple JavaScript library to manage \"generic\" decks of cards.",
-  "main": "index.js",
+  "main": "cardeck.js",
   "scripts": {
     "test": "jasmine"
   },

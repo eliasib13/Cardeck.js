@@ -1,4 +1,4 @@
-var Cardeck = require('../index.js');
+var Cardeck = require('../cardeck.js');
 var Deck = Cardeck.Deck;
 var Card = Cardeck.Card;
 
