@@ -205,6 +205,28 @@ Deck.prototype.drawCardFromRandom = function () {
     }
 }
 
+/**
+ * Shuffles the order of the cards in a deck.
+ * 
+ * @this {Deck}
+ */
+Deck.prototype.shuffle = function () {
+    var currentIndex = this.cards.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        temporaryValue = this.cards[currentIndex];
+        this.cards[currentIndex] = this.cards[randomIndex];
+        this.cards[randomIndex] = temporaryValue;
+    }
+}
+
 module.exports = {
     Deck: Deck,
     Card: Card
