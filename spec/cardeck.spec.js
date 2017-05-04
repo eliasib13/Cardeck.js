@@ -317,4 +317,107 @@ describe('Testing Deck methods', function () {
         expect(testDeck.size).toEqual(0);
     });
 
+    it('Method cut (with even size)', function() {
+        var testDeck = new Deck();
+        var cardsObjs = [
+            {
+                value: 6,
+                type: 'Hearts',
+                imgPath: 'img/card1.jpg'
+            },
+            {
+                value: 9,
+                type: 'Clubs',
+                imgPath: 'img/card2.jpg'
+            },
+            {
+                value: 10,
+                type: 'Aces',
+                imgPath: 'img/card3.jpg'
+            },
+            {
+                value: 'K',
+                type: 'Clubs',
+                imgPath: 'img/card4.jpg'
+            }
+        ];
+
+        cardsObjs.forEach(function(card) {
+            testDeck.addCardToBottom(card);
+        }, this);
+
+        var objsAsCard = [
+            new Card(cardsObjs[0].value, cardsObjs[0].type, cardsObjs[0].imgPath),
+            new Card(cardsObjs[1].value, cardsObjs[1].type, cardsObjs[1].imgPath),
+            new Card(cardsObjs[2].value, cardsObjs[2].type, cardsObjs[2].imgPath),            
+            new Card(cardsObjs[3].value, cardsObjs[3].type, cardsObjs[3].imgPath)            
+        ];
+
+        expect(testDeck.size).toBe(cardsObjs.length);
+        
+        testDeck.cut();        
+
+        expect(testDeck.cards[0]).toEqual(objsAsCard[2]);
+        expect(testDeck.cards[1]).toEqual(objsAsCard[3]);
+        expect(testDeck.cards[2]).toEqual(objsAsCard[0]);
+        expect(testDeck.cards[3]).toEqual(objsAsCard[1]);
+        expect(testDeck.size).toBe(cardsObjs.length);      
+        
+    });
+
+    it('Method cut (with odd size)', function() {
+        var testDeck = new Deck();
+        var cardsObjs = [
+            {
+                value: 6,
+                type: 'Hearts',
+                imgPath: 'img/card1.jpg'
+            },
+            {
+                value: 9,
+                type: 'Clubs',
+                imgPath: 'img/card2.jpg'
+            },
+            {
+                value: 10,
+                type: 'Aces',
+                imgPath: 'img/card3.jpg'
+            },
+            {
+                value: 'K',
+                type: 'Clubs',
+                imgPath: 'img/card4.jpg'
+            },
+            {
+                value: 'Q',
+                type: 'Hearts',
+                imgPath: 'img/card5.jpg'
+            }
+        ];
+
+        cardsObjs.forEach(function(card) {
+            testDeck.addCardToBottom(card);
+        }, this);
+
+        var objsAsCard = [
+            new Card(cardsObjs[0].value, cardsObjs[0].type, cardsObjs[0].imgPath),
+            new Card(cardsObjs[1].value, cardsObjs[1].type, cardsObjs[1].imgPath),
+            new Card(cardsObjs[2].value, cardsObjs[2].type, cardsObjs[2].imgPath),
+            new Card(cardsObjs[3].value, cardsObjs[3].type, cardsObjs[3].imgPath),
+            new Card(cardsObjs[4].value, cardsObjs[4].type, cardsObjs[4].imgPath)
+        ];
+
+        expect(testDeck.size).toBe(cardsObjs.length);
+        
+        testDeck.cut();        
+
+        expect(testDeck.cards[0]).toEqual(objsAsCard[2]);
+        expect(testDeck.cards[1]).toEqual(objsAsCard[3]);
+        expect(testDeck.cards[2]).toEqual(objsAsCard[4]);
+        expect(testDeck.cards[3]).toEqual(objsAsCard[0]);
+        expect(testDeck.cards[4]).toEqual(objsAsCard[1]);
+        expect(testDeck.size).toBe(cardsObjs.length);      
+        
+    });
+
 });

@@ -227,6 +227,20 @@ Deck.prototype.shuffle = function () {
     }
 }
 
+/**
+ * Exchange the order of the first half of cards of the deck with the second one.
+ * 
+ * @this {Deck}
+ */
+Deck.prototype.cut = function () {
+    var halfIndex = this.size / 2;
+    debugger;
+
+    var firstHalf = this.cards.splice(0, halfIndex);
+
+    this.cards = this.cards.concat(firstHalf);
+}
+
 module.exports = {
     Deck: Deck,
     Card: Card
