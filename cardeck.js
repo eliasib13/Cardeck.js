@@ -182,7 +182,7 @@
      * @return {Card} The card to add to the deck.
      */
     Deck.prototype.addCardToRandom = function (c) {
-        var position = Math.floor(Math.random() * this.size);
+        var position = Math.floor(Math.random() * (this.size + 1));
         
         if (c instanceof Card)
             this.cards.splice(position, 0, c);
