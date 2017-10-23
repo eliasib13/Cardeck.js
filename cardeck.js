@@ -241,6 +241,34 @@
         this.cards = this.cards.concat(firstHalf);
     }
 
+    /**
+     * Deal cards by turns for each player, drawing from the top
+     * 
+     * @this {Deck}
+     * @returns {Object<Array<Card>>} An object with as many array of Cards as players specified
+     */
+    Deck.prototype.deal = function (c, p) {
+        var result = {};
+
+        for (var player = 0; player < p; player++) {
+            var cardsPerPlayer = [];
+            
+            for (var card = 0; card < c; card++) {
+                var currentCard = this.drawCardFromTop();
+                if (currentCard) {
+                    cardsPerPlayer.push(currentCard);
+                }
+                else {
+                    break;
+                }
+            }
+
+            result[`${player}`] = cardsPerPlayer;
+        }
+
+        return result;
+    }
+
     exports.Deck = Deck;
     exports.Card = Card;
     
