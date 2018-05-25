@@ -43,7 +43,7 @@
      */
     Card.prototype.setType = function (t) {
         this.type = t;
-    }
+    };
 
     /**
      * Gets the type of the card.
@@ -53,7 +53,7 @@
      */
     Card.prototype.getType = function () {
         return this.type;
-    }
+    };
 
     /**
      * Sets the path to the image which represents a card.
@@ -63,7 +63,7 @@
      */
     Card.prototype.setImgPath = function (i) {
         this.imgPath = i;
-    }
+    };
 
     /**
      * Gets the path to the image which represents a card.
@@ -73,7 +73,7 @@
      */
     Card.prototype.getImgPath = function () {
         return this.imgPath;
-    }
+    };
 
     /**
      *
@@ -107,7 +107,7 @@
      */
     Deck.prototype.setName = function (n) {
         this.name = n;
-    }
+    };
 
     /**
      * Gets the size of the deck.
@@ -131,7 +131,7 @@
         else
             this.cards.unshift(new Card(c.value,c.type,c.imgPath));
         this.size++;
-    }
+    };
 
     /**
      * Adds a new card at the end of the deck.
@@ -145,7 +145,7 @@
         else
             this.cards.push(new Card(c.value,c.type,c.imgPath));
         this.size++;
-    }
+    };
 
     /**
      * Draws a card from the top of the deck.
@@ -159,7 +159,7 @@
             this.size--;
             return pickedCard;
         }
-    }
+    };
 
     /**
      * Draws a card from the bottom of the deck.
@@ -173,7 +173,7 @@
             this.size--;
             return pickedCard;
         }
-    }
+    };
 
     /**
      * Adds a new card at a random position of the deck.
@@ -189,7 +189,7 @@
         else
             this.cards.splice(position, 0, new Card(c.value,c.type,c.imgPath));
         this.size++;
-    }
+    };
 
     /**
      * Draws a card from a random position of the deck.
@@ -204,7 +204,7 @@
             this.size--;
             return pickedCard[0];
         }
-    }
+    };
 
     /**
      * Shuffles the order of the cards in a deck.
@@ -226,7 +226,7 @@
             this.cards[currentIndex] = this.cards[randomIndex];
             this.cards[randomIndex] = temporaryValue;
         }
-    }
+    };
 
     /**
      * Exchange the order of the first half of cards of the deck with the second one.
@@ -239,7 +239,7 @@
         var firstHalf = this.cards.splice(0, halfIndex);
 
         this.cards = this.cards.concat(firstHalf);
-    }
+    };
 
     /**
      * Deal cards by turns for each player, drawing from the top
@@ -263,11 +263,11 @@
                 }
             }
 
-            result[`${player}`] = cardsPerPlayer;
+            result[player] = cardsPerPlayer;
         }
 
         return result;
-    }
+    };
 
     exports.Deck = Deck;
     exports.Card = Card;

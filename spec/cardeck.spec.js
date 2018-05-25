@@ -464,13 +464,13 @@ describe('Testing Deck methods', function () {
 
         var dealing = testDeck.deal(3, 2);
 
-        expect(dealing["0"].length).toEqual(3);
-        expect(dealing["1"].length).toEqual(2);
+        expect(dealing[0].length).toEqual(3);
+        expect(dealing[1].length).toEqual(2);
 
-        expect(dealing["0"]["0"]).toEqual(objsAsCard[0]);
-        expect(dealing["0"]["1"]).toEqual(objsAsCard[1]);
-        expect(dealing["0"]["2"]).toEqual(objsAsCard[2]);
-        expect(dealing["1"]["0"]).toEqual(objsAsCard[3]);
-        expect(dealing["1"]["1"]).toEqual(objsAsCard[4]);
-    })
+        expect(dealing[0][0]).toEqual(objsAsCard[0]);
+        expect(dealing[0][1]).toEqual(objsAsCard[1]);
+        expect(dealing[0][2]).toEqual(objsAsCard[2]);
+        expect(dealing[1][0]).toEqual(objsAsCard[3]);
+        expect(dealing[1][1]).toEqual(objsAsCard[4]);
+    });
 });
