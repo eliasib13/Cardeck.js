@@ -1,7 +1,7 @@
 # Cardeck.js
 
 [![npm](https://img.shields.io/npm/v/cardeck.svg)](https://www.npmjs.com/package/cardeck)
-[![Build Status](https://travis-ci.org/eliasib13/Cardeck.js.svg?branch=master)](https://travis-ci.org/eliasib13/Cardeck.js)
+[![Build Status](https://travis-ci.com/eliasib13/Cardeck.js.svg?branch=master)](https://travis-ci.com/eliasib13/Cardeck.js)
 [![npm](https://img.shields.io/npm/dt/cardeck.svg)](https://www.npmjs.com/package/cardeck)
 [![npm](https://img.shields.io/npm/l/cardeck.svg)](https://www.npmjs.com/package/cardeck)
 
