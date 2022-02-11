@@ -1,6 +1,6 @@
 {
   "name": "cardeck",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A simple JavaScript library to manage \"generic\" decks of cards.",
   "repository": {
     "type": "git",
@@ -19,8 +19,8 @@
   "author": "Eliasib J. García Martín",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "jasmine": "^3.5.0",
-    "jasmine-expect": "^4.0.3"
+    "eslint": "^8.8.0",
+    "jasmine": "^4.0.2",
+    "jasmine-expect": "^5.0.0"
   }
 }
